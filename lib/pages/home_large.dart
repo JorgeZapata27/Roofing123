@@ -126,6 +126,24 @@ class HomePageLarge extends StatelessWidget {
       ),
     );
 
+    Widget areasView = Container(
+      height: 346,
+      width: MediaQuery.of(context).size.width,
+      color: Color(0xFFF3FCFF),
+    );
+
+    Widget startView = Container(
+      height: 304,
+      width: MediaQuery.of(context).size.width,
+      color: Color(0xFFD0F2FD),
+    );
+
+    Widget footer = Container(
+      height: 638,
+      width: MediaQuery.of(context).size.width,
+      color: fifthBackgroundColor,
+    );
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -136,6 +154,9 @@ class HomePageLarge extends StatelessWidget {
             SizedBox(
               height: 100,
             ),
+            areasView,
+            startView,
+            footer
           ],
         ),
       ),
