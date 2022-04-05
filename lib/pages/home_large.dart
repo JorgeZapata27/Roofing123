@@ -1,11 +1,60 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:roofing/constants/colors.dart';
+import 'package:roofing/model/slide.dart';
+import 'package:roofing/widgets/faq_tile.dart';
+import 'package:roofing/widgets/location_widget.dart';
 import 'package:roofing/widgets/main_button.dart';
 import 'package:roofing/widgets/nav.dart';
+import 'package:roofing/widgets/slider/slide_dots.dart';
+import 'package:roofing/widgets/slider/slide_item.dart';
 import 'package:roofing/widgets/text.dart';
 
-class HomePageLarge extends StatelessWidget {
+class HomePageLarge extends StatefulWidget {
   const HomePageLarge({Key? key}) : super(key: key);
+
+  @override
+  State<HomePageLarge> createState() => _HomePageLargeState();
+}
+
+class _HomePageLargeState extends State<HomePageLarge> {
+  double height = 647;
+
+  int _currentPage = 0;
+  final PageController _pageController = PageController(initialPage: 0);
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(milliseconds: 2000), () {
+      Timer.periodic(Duration(seconds: 5), (Timer timer) {
+        if (_currentPage < 2) {
+          _currentPage++;
+        } else {
+          _currentPage = 0;
+        }
+
+        _pageController.animateToPage(
+          _currentPage,
+          duration: Duration(milliseconds: 300),
+          curve: Curves.easeIn,
+        );
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _pageController.dispose();
+  }
+
+  _onPageChanged(int index) {
+    setState(() {
+      _currentPage = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +143,7 @@ class HomePageLarge extends StatelessWidget {
       ],
     );
 
-    Widget awardsView = Container(
+    Widget awards = Container(
       height: 245,
       width: MediaQuery.of(context).size.width,
       color: secondBackgroundColor,
@@ -130,18 +179,736 @@ class HomePageLarge extends StatelessWidget {
       height: 346,
       width: MediaQuery.of(context).size.width,
       color: Color(0xFFF3FCFF),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Padding(
+            padding: EdgeInsets.only(
+              left: 100,
+              top: 8,
+            ),
+            child: Styles.regular(
+              "Areas we\nserve",
+              align: TextAlign.left,
+              fontSize: 68,
+              weight: FontWeight.w600,
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+              right: 100,
+              top: 58,
+            ),
+            child: Container(
+              height: 207,
+              width: 738,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      LocaationWidget(
+                        width: 131,
+                        title: "New York",
+                      ),
+                      SizedBox(
+                        width: 33,
+                      ),
+                      LocaationWidget(
+                        width: 148,
+                        title: "New Jersey",
+                      ),
+                      SizedBox(
+                        width: 33,
+                      ),
+                      LocaationWidget(
+                        width: 163,
+                        title: "Conneticut",
+                      ),
+                      SizedBox(
+                        width: 33,
+                      ),
+                      LocaationWidget(
+                        width: 188,
+                        title: "Orange County",
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 24,
+                  ),
+                  Row(
+                    children: [
+                      LocaationWidget(
+                        width: 207,
+                        title: "Rockland County",
+                      ),
+                      SizedBox(
+                        width: 33,
+                      ),
+                      LocaationWidget(
+                        width: 240,
+                        title: "Westchester County",
+                      ),
+                      SizedBox(
+                        width: 33,
+                      ),
+                      LocaationWidget(
+                        width: 193,
+                        title: "Sullivan County",
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 24,
+                  ),
+                  Row(
+                    children: [
+                      LocaationWidget(
+                        width: 193,
+                        title: "Putnam County",
+                      ),
+                      SizedBox(
+                        width: 33,
+                      ),
+                      LocaationWidget(
+                        width: 206,
+                        title: "Dutchess County",
+                      ),
+                      SizedBox(
+                        width: 33,
+                      ),
+                      LocaationWidget(
+                        width: 170,
+                        title: "Pennsylvania",
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
 
     Widget startView = Container(
-      height: 304,
+      height: 330,
       width: MediaQuery.of(context).size.width,
       color: Color(0xFFD0F2FD),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: EdgeInsets.only(
+              top: 55,
+              left: 100,
+            ),
+            child: Styles.regular(
+              "Have The Home That You\nAnd Your Family Deserve",
+              weight: FontWeight.w400,
+              color: textColor,
+              fontSize: 45,
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+              top: 35,
+              left: 100,
+            ),
+            child: Container(
+              width: 205,
+              height: 63,
+              child: MainButton(
+                text: "Get Started",
+                isBold: false,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
 
     Widget footer = Container(
       height: 638,
       width: MediaQuery.of(context).size.width,
       color: fifthBackgroundColor,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Container(
+            width: 215,
+            height: 638,
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 104,
+                ),
+                Container(
+                  height: 96,
+                  width: 249,
+                  child: Image.asset(
+                    "assets/images/logo_white.png",
+                  ),
+                ),
+                SizedBox(
+                  height: 12,
+                ),
+                Container(
+                  child: Styles.regular(
+                    "We are located in Nyc, Westchester, county, Rockland county, Orange County, Sullivan county, Durchess county, CT, NJ.",
+                    color: Colors.white,
+                    fontSize: 15,
+                    weight: FontWeight.w500,
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  children: [
+                    Container(
+                      height: 20,
+                      width: 20,
+                      child: Image.asset("assets/images/whatsapp.png"),
+                    ),
+                    SizedBox(
+                      width: 12,
+                    ),
+                    Styles.regular(
+                      "914 649 0030",
+                      fontSize: 15,
+                      color: Colors.white,
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  children: [
+                    Container(
+                      height: 20,
+                      width: 20,
+                      child: Image.asset("assets/images/linkedin.png"),
+                    ),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    Container(
+                      height: 20,
+                      width: 20,
+                      child: Image.asset("assets/images/instagram.png"),
+                    ),
+                    SizedBox(
+                      width: 12,
+                    ),
+                    Styles.regular(
+                      "@123roofs",
+                      fontSize: 15,
+                      color: Colors.white,
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  children: [
+                    Container(
+                      height: 20,
+                      width: 20,
+                      child: Image.asset("assets/images/email.png"),
+                    ),
+                    SizedBox(
+                      width: 12,
+                    ),
+                    Styles.regular(
+                      "info@123services.com",
+                      fontSize: 15,
+                      color: Colors.white,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Container(
+            width: 215,
+            height: 638,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 130,
+                ),
+                Container(
+                  height: 60,
+                  child: Column(
+                    children: [
+                      Styles.regular(
+                        "Company",
+                        fontSize: 40,
+                        color: Colors.white,
+                        weight: FontWeight.bold,
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: GestureDetector(
+                    child: Container(
+                      child: Styles.regular(
+                        "About Us",
+                        color: Colors.white,
+                        align: TextAlign.left,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: GestureDetector(
+                    child: Container(
+                      child: Styles.regular(
+                        "Roofing",
+                        color: Colors.white,
+                        align: TextAlign.left,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: GestureDetector(
+                    child: Container(
+                      child: Styles.regular(
+                        "Storm Damage",
+                        color: Colors.white,
+                        align: TextAlign.left,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: GestureDetector(
+                    child: Container(
+                      child: Styles.regular(
+                        "Siding",
+                        color: Colors.white,
+                        align: TextAlign.left,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: GestureDetector(
+                    child: Container(
+                      child: Styles.regular(
+                        "Shingles",
+                        color: Colors.white,
+                        align: TextAlign.left,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: GestureDetector(
+                    child: Container(
+                      child: Styles.regular(
+                        "Finance",
+                        color: Colors.white,
+                        align: TextAlign.left,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: GestureDetector(
+                    child: Container(
+                      child: Styles.regular(
+                        "Instant Quote",
+                        color: Colors.white,
+                        align: TextAlign.left,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            width: 459,
+            height: 638,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 130,
+                ),
+                Container(
+                  height: 60,
+                  child: Column(
+                    children: [
+                      Styles.regular(
+                        "Location",
+                        fontSize: 40,
+                        color: Colors.white,
+                        weight: FontWeight.bold,
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  height: 233,
+                  width: 459,
+                  child: Image.asset("assets/images/location_image.png"),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+
+    Widget subfooter = Stack(
+      children: [
+        Column(
+          children: [
+            areasView,
+            startView,
+          ],
+        ),
+        Positioned(
+          bottom: 0,
+          right: 0,
+          child: Container(
+            child: Image.asset("assets/images/roofer.png"),
+            height: 384,
+            width: 749,
+          ),
+        ),
+      ],
+    );
+
+    Widget faq = Container(
+      height: height,
+      width: MediaQuery.of(context).size.width,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(
+            height: 65,
+          ),
+          Styles.regular(
+            "Hello! 👋",
+            weight: FontWeight.w500,
+            fontSize: 60,
+            align: TextAlign.center,
+          ),
+          Styles.regular(
+            "How can we help you?",
+            fontSize: 45,
+            align: TextAlign.center,
+          ),
+          SizedBox(
+            height: 46,
+          ),
+          Container(
+            width: 957,
+            child: Column(
+              children: [
+                ExpansionTile(
+                  title: Styles.regular(
+                    "What Signs Indicate That I Need To Repair My Roof?",
+                    fontSize: 24,
+                    weight: FontWeight.w500,
+                  ),
+                  backgroundColor: Color(0xFFEDF0F2),
+                  collapsedBackgroundColor: Color(0xFFEDF0F2),
+                  textColor: textColor,
+                  iconColor: textColor,
+                  onExpansionChanged: (bool) {
+                    if (bool) {
+                      setState(() {
+                        height = height + 100;
+                      });
+                    } else {
+                      setState(() {
+                        height = height - 100;
+                      });
+                    }
+                  },
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 18,
+                        right: 18,
+                      ),
+                      child: Container(
+                        height: 140,
+                        width: 957,
+                        child: Styles.regular(
+                          "There are many signs that repair is needed on your roof. Punctures, tears, and excessive wear spots on the shingles are a few of the most common signs. If you suspect a storm damaged your roof, it's best to have a professional inspect your roof since they know what they are looking for.",
+                          fontSize: 20,
+                          color: Color(0xFF595D64),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 46,
+                ),
+                ExpansionTile(
+                  title: Styles.regular(
+                    "How Often Should I Replace My Roof?",
+                    fontSize: 24,
+                    weight: FontWeight.w500,
+                  ),
+                  backgroundColor: Color(0xFFEDF0F2),
+                  collapsedBackgroundColor: Color(0xFFEDF0F2),
+                  textColor: textColor,
+                  iconColor: textColor,
+                  onExpansionChanged: (bool) {
+                    if (bool) {
+                      setState(() {
+                        height = height + 100;
+                      });
+                    } else {
+                      setState(() {
+                        height = height - 100;
+                      });
+                    }
+                  },
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 18,
+                        right: 18,
+                      ),
+                      child: Container(
+                        height: 140,
+                        width: 957,
+                        child: Styles.regular(
+                          "There are many signs that repair is needed on your roof. Punctures, tears, and excessive wear spots on the shingles are a few of the most common signs. If you suspect a storm damaged your roof, it's best to have a professional inspect your roof since they know what they are looking for.",
+                          fontSize: 20,
+                          color: Color(0xFF595D64),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 46,
+                ),
+                ExpansionTile(
+                  title: Styles.regular(
+                    "How Long Does It Take To Strip And Install A New Roof?",
+                    fontSize: 24,
+                    weight: FontWeight.w500,
+                  ),
+                  backgroundColor: Color(0xFFEDF0F2),
+                  collapsedBackgroundColor: Color(0xFFEDF0F2),
+                  textColor: textColor,
+                  iconColor: textColor,
+                  onExpansionChanged: (bool) {
+                    if (bool) {
+                      setState(() {
+                        height = height + 100;
+                      });
+                    } else {
+                      setState(() {
+                        height = height - 100;
+                      });
+                    }
+                  },
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 18,
+                        right: 18,
+                      ),
+                      child: Container(
+                        height: 140,
+                        width: 957,
+                        child: Styles.regular(
+                          "There are many signs that repair is needed on your roof. Punctures, tears, and excessive wear spots on the shingles are a few of the most common signs. If you suspect a storm damaged your roof, it's best to have a professional inspect your roof since they know what they are looking for.",
+                          fontSize: 20,
+                          color: Color(0xFF595D64),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+
+    Widget rating = Container(
+      height: 630,
+      width: MediaQuery.of(context).size.width,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(
+            height: 65,
+          ),
+          Styles.regular(
+            "What Our Happy Customers Say",
+            weight: FontWeight.w500,
+            fontSize: 45,
+            align: TextAlign.center,
+          ),
+          SizedBox(
+            height: 46,
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                width: 230,
+                height: 400,
+                child: Center(
+                  child: Image.asset(
+                    "assets/images/dolly.png",
+                  ),
+                ),
+              ),
+              Container(
+                width: 850,
+                height: 400,
+                child: Column(
+                  children: [
+                    Container(
+                      height: 30,
+                      width: 180,
+                      child: Image.asset(
+                        "assets/images/stars.png",
+                      ),
+                    ),
+                    SizedBox(
+                      height: 18,
+                    ),
+                    Styles.regular(
+                      "Jeremy Ohara",
+                      fontSize: 24,
+                      align: TextAlign.center,
+                    ),
+                    Styles.regular(
+                      "November 18, 2021",
+                      fontSize: 16,
+                      color: Color(0xFF817E7E),
+                      align: TextAlign.center,
+                    ),
+                    SizedBox(
+                      height: 28,
+                    ),
+                    Styles.regular(
+                      "Extremely professional company\nwith high-quality workmanship!",
+                      fontSize: 24,
+                      color: Colors.black,
+                      align: TextAlign.center,
+                    ),
+                    SizedBox(
+                      height: 45,
+                    ),
+                    Styles.regular(
+                      "Very honest and trustworthy owners. They explain everything to you and\nthere are no hidden costs. I promise you that you will not have any\ninconvenience when performing the roofing installation with them",
+                      fontSize: 20,
+                      color: Color(0xFF545454),
+                      align: TextAlign.center,
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                width: 230,
+                height: 400,
+                child: Center(
+                  child: Image.asset(
+                    "assets/images/dewalt.png",
+                  ),
+                ),
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+
+    Widget spacer = SizedBox(height: 50);
+
+    Widget reasons = Container(
+      height: 670,
+      width: MediaQuery.of(context).size.width,
+      child: Stack(
+        alignment: AlignmentDirectional.bottomCenter,
+        children: <Widget>[
+          PageView.builder(
+            scrollDirection: Axis.horizontal,
+            controller: _pageController,
+            onPageChanged: _onPageChanged,
+            itemCount: slideList.length,
+            itemBuilder: (ctx, i) => SlideItem(i),
+          ),
+          Stack(
+            alignment: AlignmentDirectional.topStart,
+            children: <Widget>[
+              Container(
+                margin: const EdgeInsets.only(bottom: 35),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    for (int i = 0; i < slideList.length; i++)
+                      if (i == _currentPage)
+                        SlideDots(true)
+                      else
+                        SlideDots(false)
+                  ],
+                ),
+              )
+            ],
+          )
+        ],
+      ),
     );
 
     return Scaffold(
@@ -150,13 +917,16 @@ class HomePageLarge extends StatelessWidget {
         child: Column(
           children: [
             header,
-            awardsView,
-            SizedBox(
-              height: 100,
-            ),
-            areasView,
-            startView,
-            footer
+            awards,
+            spacer,
+            reasons,
+            spacer,
+            rating,
+            spacer,
+            faq,
+            spacer,
+            subfooter,
+            footer,
           ],
         ),
       ),
