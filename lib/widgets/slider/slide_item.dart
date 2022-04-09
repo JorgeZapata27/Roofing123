@@ -66,36 +66,5 @@ class SlideItem extends StatelessWidget {
         ),
       ),
     );
-    // Column(
-    //   mainAxisAlignment: MainAxisAlignment.center,
-    //   crossAxisAlignment: CrossAxisAlignment.center,
-    //   children: <Widget>[
-    //     Container(
-    //       width: 200,
-    //       height: 200,
-    //       child: ClipRRect(
-    //         child: Image.asset(slideList[index].imageUrl),
-    //         borderRadius: BorderRadius.circular(30),
-    //       ),
-    //     ),
-    //     SizedBox(
-    //       height: 40,
-    //     ),
-    //     Text(
-    //       slideList[index].title,
-    //       style: TextStyle(
-    //         fontSize: 22,
-    //         color: Theme.of(context).primaryColor,
-    //       ),
-    //     ),
-    //     SizedBox(
-    //       height: 10,
-    //     ),
-    //     Text(
-    //       slideList[index].description,
-    //       textAlign: TextAlign.center,
-    //     ),
-    //   ],
-    // );
   }
 }
