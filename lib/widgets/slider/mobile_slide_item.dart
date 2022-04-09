@@ -36,23 +36,24 @@ class MobileSlideItem extends StatelessWidget {
                   weight: FontWeight.w500,
                 ),
               ),
+              SizedBox(
+                height: 20,
+              ),
               Padding(
                 padding: EdgeInsets.only(),
                 child: Styles.regular(
                   slideList[index].desc,
-                  fontSize: 26,
+                  fontSize: 20,
                   weight: FontWeight.w400,
                 ),
               ),
               SizedBox(
                 height: 20,
               ),
-              Center(
-                child: Container(
-                  height: 270,
-                  child: Image.asset(
-                    slideList[index].imageName,
-                  ),
+              Container(
+                height: 270,
+                child: Image.asset(
+                  slideList[index].imageName,
                 ),
               ),
             ],

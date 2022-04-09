@@ -1069,9 +1069,9 @@ class _HomePageLargeState extends State<HomePageLarge> {
             width: MediaQuery.of(context).size.width,
             child: Padding(
               padding: EdgeInsets.only(
-                  // left: 118,
-                  // right: 118,
-                  ),
+                left: 118,
+                right: 118,
+              ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,

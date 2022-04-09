@@ -33,7 +33,7 @@ class MainButton extends StatelessWidget {
           child: Center(
             child: Styles.regular(
               text!,
-              weight: isBold! ? FontWeight.bold : FontWeight.normal,
+              weight: isBold! ? FontWeight.bold : FontWeight.bold,
               color: Colors.white,
               fontSize: 15,
             ),
