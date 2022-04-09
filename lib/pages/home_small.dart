@@ -700,302 +700,306 @@ class _HomePageSmallState extends State<HomePageSmall> {
     );
 
     Widget footer = Container(
-      height: 638,
+      height: 1200,
       width: MediaQuery.of(context).size.width,
       color: fifthBackgroundColor,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Container(
-            width: 215,
-            height: 638,
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 104,
-                ),
-                Container(
-                  height: 96,
-                  width: 249,
-                  child: Image.asset(
-                    "assets/images/logo_white.png",
+      child: Padding(
+        padding: const EdgeInsets.only(
+          left: 25,
+          right: 25,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width - 50,
+              height: 450,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 104,
                   ),
-                ),
-                SizedBox(
-                  height: 12,
-                ),
-                Container(
-                  child: Styles.regular(
-                    "We are located in Nyc, Westchester, county, Rockland county, Orange County, Sullivan county, Durchess county, CT, NJ.",
-                    color: Colors.white,
-                    fontSize: 15,
-                    weight: FontWeight.w500,
+                  Container(
+                    height: 96,
+                    width: 249,
+                    child: Image.asset(
+                      "assets/images/logo_white.png",
+                    ),
                   ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  children: [
-                    Container(
-                      height: 20,
-                      width: 20,
-                      child: Image.asset("assets/images/whatsapp.png"),
-                    ),
-                    SizedBox(
-                      width: 12,
-                    ),
-                    Styles.regular(
-                      "914 649 0030",
-                      fontSize: 15,
+                  SizedBox(
+                    height: 12,
+                  ),
+                  Container(
+                    child: Styles.regular(
+                      "We are located in Nyc, Westchester, county, Rockland county, Orange County, Sullivan county, Durchess county, CT, NJ.",
                       color: Colors.white,
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  children: [
-                    Container(
-                      height: 20,
-                      width: 20,
-                      child: Image.asset("assets/images/linkedin.png"),
-                    ),
-                    SizedBox(
-                      width: 8,
-                    ),
-                    Container(
-                      height: 20,
-                      width: 20,
-                      child: Image.asset("assets/images/instagram.png"),
-                    ),
-                    SizedBox(
-                      width: 12,
-                    ),
-                    Styles.regular(
-                      "@123roofs",
                       fontSize: 15,
-                      color: Colors.white,
+                      weight: FontWeight.w500,
                     ),
-                  ],
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  children: [
-                    Container(
-                      height: 20,
-                      width: 20,
-                      child: Image.asset("assets/images/email.png"),
-                    ),
-                    SizedBox(
-                      width: 12,
-                    ),
-                    Styles.regular(
-                      "info@123services.com",
-                      fontSize: 15,
-                      color: Colors.white,
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          Container(
-            width: 215,
-            height: 638,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  height: 130,
-                ),
-                Container(
-                  height: 60,
-                  child: Column(
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Row(
                     children: [
+                      Container(
+                        height: 20,
+                        width: 20,
+                        child: Image.asset("assets/images/whatsapp.png"),
+                      ),
+                      SizedBox(
+                        width: 12,
+                      ),
                       Styles.regular(
-                        "Company",
-                        fontSize: 40,
+                        "914 649 0030",
+                        fontSize: 15,
                         color: Colors.white,
-                        weight: FontWeight.bold,
                       ),
                     ],
                   ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                MouseRegion(
-                  cursor: SystemMouseCursors.click,
-                  child: GestureDetector(
-                    child: Container(
-                      child: Styles.regular(
-                        "About Us",
-                        color: Colors.white,
-                        align: TextAlign.left,
-                      ),
-                    ),
+                  SizedBox(
+                    height: 20,
                   ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                MouseRegion(
-                  cursor: SystemMouseCursors.click,
-                  child: GestureDetector(
-                    child: Container(
-                      child: Styles.regular(
-                        "Roofing",
-                        color: Colors.white,
-                        align: TextAlign.left,
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                MouseRegion(
-                  cursor: SystemMouseCursors.click,
-                  child: GestureDetector(
-                    child: Container(
-                      child: Styles.regular(
-                        "Storm Damage",
-                        color: Colors.white,
-                        align: TextAlign.left,
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                MouseRegion(
-                  cursor: SystemMouseCursors.click,
-                  child: GestureDetector(
-                    child: Container(
-                      child: Styles.regular(
-                        "Siding",
-                        color: Colors.white,
-                        align: TextAlign.left,
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                MouseRegion(
-                  cursor: SystemMouseCursors.click,
-                  child: GestureDetector(
-                    child: Container(
-                      child: Styles.regular(
-                        "Shingles",
-                        color: Colors.white,
-                        align: TextAlign.left,
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                MouseRegion(
-                  cursor: SystemMouseCursors.click,
-                  child: GestureDetector(
-                    child: Container(
-                      child: Styles.regular(
-                        "Finance",
-                        color: Colors.white,
-                        align: TextAlign.left,
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                MouseRegion(
-                  cursor: SystemMouseCursors.click,
-                  child: GestureDetector(
-                    child: Container(
-                      child: Styles.regular(
-                        "Instant Quote",
-                        color: Colors.white,
-                        align: TextAlign.left,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            width: 459,
-            height: 638,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  height: 130,
-                ),
-                Container(
-                  height: 60,
-                  child: Column(
+                  Row(
                     children: [
+                      Container(
+                        height: 20,
+                        width: 20,
+                        child: Image.asset("assets/images/linkedin.png"),
+                      ),
+                      SizedBox(
+                        width: 8,
+                      ),
+                      Container(
+                        height: 20,
+                        width: 20,
+                        child: Image.asset("assets/images/instagram.png"),
+                      ),
+                      SizedBox(
+                        width: 12,
+                      ),
                       Styles.regular(
-                        "Location",
-                        fontSize: 40,
+                        "@123roofs",
+                        fontSize: 15,
                         color: Colors.white,
-                        weight: FontWeight.bold,
                       ),
                     ],
                   ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Container(
-                  height: 233,
-                  width: 459,
-                  child: Image.asset("assets/images/location_image.png"),
-                ),
-              ],
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                        height: 20,
+                        width: 20,
+                        child: Image.asset("assets/images/email.png"),
+                      ),
+                      SizedBox(
+                        width: 12,
+                      ),
+                      Styles.regular(
+                        "info@123services.com",
+                        fontSize: 15,
+                        color: Colors.white,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+            Container(
+              width: 215,
+              height: 380,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    height: 60,
+                    child: Column(
+                      children: [
+                        Styles.regular(
+                          "Company",
+                          fontSize: 40,
+                          color: Colors.white,
+                          weight: FontWeight.bold,
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: GestureDetector(
+                      child: Container(
+                        child: Styles.regular(
+                          "About Us",
+                          color: Colors.white,
+                          align: TextAlign.left,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: GestureDetector(
+                      child: Container(
+                        child: Styles.regular(
+                          "Roofing",
+                          color: Colors.white,
+                          align: TextAlign.left,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: GestureDetector(
+                      child: Container(
+                        child: Styles.regular(
+                          "Storm Damage",
+                          color: Colors.white,
+                          align: TextAlign.left,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: GestureDetector(
+                      child: Container(
+                        child: Styles.regular(
+                          "Siding",
+                          color: Colors.white,
+                          align: TextAlign.left,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: GestureDetector(
+                      child: Container(
+                        child: Styles.regular(
+                          "Shingles",
+                          color: Colors.white,
+                          align: TextAlign.left,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: GestureDetector(
+                      child: Container(
+                        child: Styles.regular(
+                          "Finance",
+                          color: Colors.white,
+                          align: TextAlign.left,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: GestureDetector(
+                      child: Container(
+                        child: Styles.regular(
+                          "Instant Quote",
+                          color: Colors.white,
+                          align: TextAlign.left,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              width: 459,
+              height: 315,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    height: 60,
+                    child: Column(
+                      children: [
+                        Styles.regular(
+                          "Location",
+                          fontSize: 40,
+                          color: Colors.white,
+                          weight: FontWeight.bold,
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    height: 233,
+                    width: 459,
+                    child: Image.asset("assets/images/location_image.png"),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
 
     Widget areasView = Container(
-      height: 346,
+      height: 570,
       width: MediaQuery.of(context).size.width,
       color: Color(0xFFF3FCFF),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
             padding: EdgeInsets.only(
-              left: 100,
-              top: 8,
+              top: 12,
+              left: 25,
             ),
             child: Styles.regular(
               "Areas we\nserve",
               align: TextAlign.left,
-              fontSize: 68,
+              fontSize: 44,
               weight: FontWeight.w600,
             ),
           ),
           Padding(
             padding: EdgeInsets.only(
-              right: 100,
-              top: 58,
+              right: 25,
+              left: 25,
+              top: 20,
             ),
             child: Container(
-              height: 207,
+              height: 400,
               width: 738,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -1004,28 +1008,32 @@ class _HomePageSmallState extends State<HomePageSmall> {
                   Row(
                     children: [
                       LocaationWidget(
-                        width: 131,
+                        width: 100,
                         title: "New York",
                       ),
                       SizedBox(
-                        width: 33,
+                        width: 20,
                       ),
                       LocaationWidget(
-                        width: 148,
+                        width: 115,
                         title: "New Jersey",
                       ),
-                      SizedBox(
-                        width: 33,
-                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 24,
+                  ),
+                  Row(
+                    children: [
                       LocaationWidget(
-                        width: 163,
+                        width: 120,
                         title: "Conneticut",
                       ),
                       SizedBox(
-                        width: 33,
+                        width: 20,
                       ),
                       LocaationWidget(
-                        width: 188,
+                        width: 145,
                         title: "Orange County",
                       ),
                     ],
@@ -1036,46 +1044,46 @@ class _HomePageSmallState extends State<HomePageSmall> {
                   Row(
                     children: [
                       LocaationWidget(
-                        width: 207,
+                        width: 160,
                         title: "Rockland County",
                       ),
                       SizedBox(
-                        width: 33,
+                        width: 20,
                       ),
                       LocaationWidget(
-                        width: 240,
-                        title: "Westchester County",
-                      ),
-                      SizedBox(
-                        width: 33,
-                      ),
-                      LocaationWidget(
-                        width: 193,
+                        width: 150,
                         title: "Sullivan County",
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: 24,
-                  ),
+                  SizedBox(height: 24),
                   Row(
                     children: [
                       LocaationWidget(
-                        width: 193,
-                        title: "Putnam County",
+                        width: 180,
+                        title: "Westchester County",
                       ),
                       SizedBox(
-                        width: 33,
+                        width: 10,
                       ),
                       LocaationWidget(
-                        width: 206,
+                        width: 140,
+                        title: "Putnam County",
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 24),
+                  Row(
+                    children: [
+                      LocaationWidget(
+                        width: 170,
                         title: "Dutchess County",
                       ),
                       SizedBox(
-                        width: 33,
+                        width: 20,
                       ),
                       LocaationWidget(
-                        width: 170,
+                        width: 150,
                         title: "Pennsylvania",
                       ),
                     ],
