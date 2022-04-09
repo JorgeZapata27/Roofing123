@@ -363,15 +363,15 @@ class _HomePageSmallState extends State<HomePageSmall> {
               ),
             ),
             SizedBox(
-              height: 14,
+              height: 30,
             ),
             Container(
               width: 358,
               child: Styles.regular(
                 name,
-                fontSize: 30,
+                fontSize: 22,
                 align: TextAlign.left,
-                weight: FontWeight.w400,
+                weight: FontWeight.w600,
               ),
             ),
             SizedBox(
