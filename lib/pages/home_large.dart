@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:roofing/constants/colors.dart';
 import 'package:roofing/model/slide.dart';
+import 'package:roofing/widgets/category_tile.dart';
 import 'package:roofing/widgets/faq_tile.dart';
 import 'package:roofing/widgets/location_widget.dart';
 import 'package:roofing/widgets/main_button.dart';
@@ -19,6 +20,48 @@ class HomePageLarge extends StatefulWidget {
 }
 
 class _HomePageLargeState extends State<HomePageLarge> {
+  var indexSelected = 0;
+
+  final List features = [
+    [
+      "We Provide The Highest\nQuality, At The Lowest\nPrice Possible.",
+      "123 Roofing is built to serve our customers with greater satisfaction than any other company in the roofing market.",
+    ],
+    [
+      "We offer free inspections\nto homeowners who\nbelieve their homes may\nhave been damaged",
+      "Whether your home has been battling\nwind, hail, or anything in between, we've\ngot you covered.",
+    ],
+    [
+      "Asphalt shingles have\ndurability and easy\nmaintenance.",
+      "Compared with other types of roofing,\narchitectural asphalt shingles often perform\nbetter during severe weather events.",
+    ],
+  ];
+
+  final List categoryNames = [
+    [
+      "Roofing Installation",
+      true,
+    ],
+    [
+      "Storm Damage",
+      false,
+    ],
+    [
+      "Shingle Installation",
+      false,
+    ],
+  ];
+
+  void categoryTypeSelected(int index) {
+    setState(() {
+      for (int i = 0; i < categoryNames.length; i++) {
+        categoryNames[i][1] = false;
+      }
+      categoryNames[index][1] = true;
+      indexSelected = index;
+    });
+  }
+
   double height = 647;
 
   int _currentPage = 0;
@@ -875,6 +918,37 @@ class _HomePageLargeState extends State<HomePageLarge> {
 
     Widget spacer = SizedBox(height: 50);
 
+    Widget recommendation(String name, String imageName) {
+      return Container(
+        width: 358,
+        height: 287,
+        child: Column(
+          children: [
+            Container(
+              height: 225,
+              width: 358,
+              child: Image.asset(
+                'assets/images/${imageName}.png',
+                fit: BoxFit.cover,
+              ),
+            ),
+            SizedBox(
+              height: 14,
+            ),
+            Container(
+              width: 358,
+              child: Styles.regular(
+                name,
+                fontSize: 30,
+                align: TextAlign.left,
+                weight: FontWeight.w400,
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
     Widget reasons = Container(
       height: 670,
       width: MediaQuery.of(context).size.width,
@@ -911,6 +985,140 @@ class _HomePageLargeState extends State<HomePageLarge> {
       ),
     );
 
+    Widget reccomendations = Container(
+      height: 500,
+      width: MediaQuery.of(context).size.width,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            height: 60,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 100),
+            child: Styles.regular(
+              "Services you might like:",
+              fontSize: 45,
+              weight: FontWeight.w400,
+            ),
+          ),
+          SizedBox(
+            height: 60,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              recommendation("Window Installing", "windows"),
+              SizedBox(
+                width: 54,
+              ),
+              recommendation("Door Installing", "measuring"),
+              SizedBox(
+                width: 54,
+              ),
+              recommendation("Roofing Repair", "staples"),
+            ],
+          )
+        ],
+      ),
+    );
+
+    Widget category(String name) {
+      double width = 0;
+      return Container(
+        height: 40,
+        width: width,
+      );
+    }
+
+    Widget categories = Container(
+      padding: EdgeInsets.only(
+        left: 119,
+        top: 20,
+        right: 119,
+      ),
+      child: Container(
+        height: 40,
+        child: ListView.builder(
+          itemCount: categoryNames.length,
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (context, index) {
+            return CategoryTile(
+              categoryName: categoryNames[index][0],
+              isSelected: categoryNames[index][1],
+              onTap: () => categoryTypeSelected(index),
+            );
+          },
+        ),
+      ),
+    );
+
+    Widget styles = Container(
+      height: 550,
+      width: MediaQuery.of(context).size.width,
+      child: Column(
+        children: [
+          categories,
+          SizedBox(
+            height: 50,
+          ),
+          Container(
+            height: 420,
+            width: MediaQuery.of(context).size.width,
+            child: Padding(
+              padding: EdgeInsets.only(
+                  // left: 118,
+                  // right: 118,
+                  ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 118),
+                    child: Container(
+                      width: 500,
+                      height: 497,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Styles.regular(
+                            features[indexSelected][0],
+                            fontSize: 40,
+                            weight: FontWeight.w500,
+                          ),
+                          Styles.regular(
+                            features[indexSelected][1],
+                            color: Color(0xFF595D64),
+                            fontSize: 24,
+                            weight: FontWeight.w400,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 100,
+                  ),
+                  Center(
+                    child: Container(
+                      height: 417,
+                      width: 400,
+                      child: Image.asset(
+                        "assets/images/f${indexSelected + 1}.png",
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -918,6 +1126,9 @@ class _HomePageLargeState extends State<HomePageLarge> {
           children: [
             header,
             awards,
+            spacer,
+            styles,
+            reccomendations,
             spacer,
             reasons,
             spacer,
