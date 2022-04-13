@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +23,8 @@ class HomePageSmall extends StatefulWidget {
 }
 
 class _HomePageSmallState extends State<HomePageSmall> {
+  final globalKey = GlobalKey<ScaffoldState>();
+
   var indexSelected = 0;
 
   final List awardObjects = [
@@ -128,6 +131,9 @@ class _HomePageSmallState extends State<HomePageSmall> {
 
   @override
   Widget build(BuildContext context) {
+    Widget buildMenu() => Container(
+          height: 3000,
+        );
     Widget header = Stack(
       children: [
         Container(
@@ -187,58 +193,61 @@ class _HomePageSmallState extends State<HomePageSmall> {
             ),
           ),
         ),
-        // MouseRegion(
-        //   cursor: SystemMouseCursors.click,
-        //   child: GestureDetector(
-        //     child: Padding(
-        //       padding: const EdgeInsets.only(
-        //         top: 50,
-        //         left: 18,
-        //       ),
-        //       child: Positioned(
-        //         child: Container(
-        //           height: 47,
-        //           width: 77,
-        //           decoration: BoxDecoration(
-        //             color: Colors.white,
-        //             borderRadius: BorderRadius.only(
-        //                 topLeft: Radius.circular(24),
-        //                 bottomLeft: Radius.circular(24),
-        //                 topRight: Radius.circular(10),
-        //                 bottomRight: Radius.circular(10)),
-        //           ),
-        //           child: Row(
-        //             children: [
-        //               SizedBox(
-        //                 width: 10,
-        //               ),
-        //               Container(
-        //                 height: 30,
-        //                 width: 30,
-        //                 child: Image.asset("assets/images/logo_only.png"),
-        //               ),
-        //               SizedBox(
-        //                 width: 12,
-        //               ),
-        //               Column(
-        //                 children: [
-        //                   SizedBox(
-        //                     height: 20,
-        //                   ),
-        //                   Container(
-        //                     height: 8,
-        //                     width: 15,
-        //                     child: Image.asset("assets/images/down_arrow.png"),
-        //                   ),
-        //                 ],
-        //               ),
-        //             ],
-        //           ),
-        //         ),
-        //       ),
-        //     ),
-        //   ),
-        // )
+        MouseRegion(
+          cursor: SystemMouseCursors.click,
+          child: GestureDetector(
+            onTap: () {
+              globalKey.currentState!.openDrawer();
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(
+                top: 50,
+                left: 18,
+              ),
+              child: Positioned(
+                child: Container(
+                  height: 47,
+                  width: 77,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(24),
+                        bottomLeft: Radius.circular(24),
+                        topRight: Radius.circular(10),
+                        bottomRight: Radius.circular(10)),
+                  ),
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        height: 30,
+                        width: 30,
+                        child: Image.asset("assets/images/logo_only.png"),
+                      ),
+                      SizedBox(
+                        width: 12,
+                      ),
+                      Column(
+                        children: [
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Container(
+                            height: 8,
+                            width: 15,
+                            child: Image.asset("assets/images/down_arrow.png"),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
       ],
     );
 
@@ -1224,8 +1233,184 @@ class _HomePageSmallState extends State<HomePageSmall> {
       ],
     );
 
+    var width = MediaQuery.of(context).size.width;
+
+    Widget drawer = Container(
+      width: width,
+      child: Drawer(
+        backgroundColor: Colors.white,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      top: 50,
+                      left: 18,
+                    ),
+                    child: Positioned(
+                      child: Container(
+                        height: 47,
+                        width: 77,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(24),
+                              bottomLeft: Radius.circular(24),
+                              topRight: Radius.circular(10),
+                              bottomRight: Radius.circular(10)),
+                        ),
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Container(
+                              height: 30,
+                              width: 30,
+                              child: Image.asset("assets/images/logo_only.png"),
+                            ),
+                            SizedBox(
+                              width: 12,
+                            ),
+                            Column(
+                              children: [
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Container(
+                                  height: 8,
+                                  width: 15,
+                                  child: Transform(
+                                    alignment: Alignment.center,
+                                    transform: Matrix4.rotationX(pi),
+                                    child: Image.asset(
+                                        "assets/images/down_arrow.png"),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 50,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 53,
+                  bottom: 40,
+                ),
+                child: GestureDetector(
+                  child: Container(
+                    height: 60,
+                    child: Styles.regular(
+                      "Home",
+                      fontSize: 40,
+                      weight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 53,
+                  bottom: 40,
+                ),
+                child: GestureDetector(
+                  child: Container(
+                    height: 60,
+                    child: Styles.regular(
+                      "About Us",
+                      fontSize: 40,
+                      weight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 53,
+                  bottom: 40,
+                ),
+                child: GestureDetector(
+                  child: Container(
+                    height: 60,
+                    child: Styles.regular(
+                      "Roofing",
+                      fontSize: 40,
+                      weight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 53,
+                  bottom: 40,
+                ),
+                child: GestureDetector(
+                  child: Container(
+                    height: 60,
+                    child: Styles.regular(
+                      "Finance",
+                      fontSize: 40,
+                      weight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 53,
+                  bottom: 40,
+                ),
+                child: GestureDetector(
+                  child: Container(
+                    height: 60,
+                    child: Styles.regular(
+                      "Areas",
+                      fontSize: 40,
+                      weight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 53,
+                  bottom: 40,
+                ),
+                child: GestureDetector(
+                  child: Container(
+                    height: 60,
+                    child: Styles.regular(
+                      "Areas",
+                      fontSize: 40,
+                      weight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+
     return Scaffold(
       backgroundColor: Colors.white,
+      key: globalKey,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -1245,6 +1430,8 @@ class _HomePageSmallState extends State<HomePageSmall> {
           ],
         ),
       ),
+      drawer: drawer,
+      drawerEnableOpenDragGesture: false,
     );
   }
 }
