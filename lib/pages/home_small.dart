@@ -904,7 +904,9 @@ class _HomePageSmallState extends State<HomePageSmall> {
                 children: [
                   Container(
                     height: 60,
+                    width: MediaQuery.of(context).size.width,
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Styles.regular(
                           "Company",
@@ -1031,7 +1033,9 @@ class _HomePageSmallState extends State<HomePageSmall> {
                 children: [
                   Container(
                     height: 60,
+                    width: MediaQuery.of(context).size.width,
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Styles.regular(
                           "Location",
@@ -1120,7 +1124,7 @@ class _HomePageSmallState extends State<HomePageSmall> {
                       ),
                       LocaationWidget(
                         width: 145,
-                        title: "Orange County",
+                        title: "Orange Co.",
                       ),
                     ],
                   ),
@@ -1131,14 +1135,14 @@ class _HomePageSmallState extends State<HomePageSmall> {
                     children: [
                       LocaationWidget(
                         width: 160,
-                        title: "Rockland County",
+                        title: "Rockland Co.",
                       ),
                       SizedBox(
                         width: 20,
                       ),
                       LocaationWidget(
                         width: 150,
-                        title: "Sullivan County",
+                        title: "Sullivan Co.",
                       ),
                     ],
                   ),
@@ -1147,14 +1151,14 @@ class _HomePageSmallState extends State<HomePageSmall> {
                     children: [
                       LocaationWidget(
                         width: 180,
-                        title: "Westchester County",
+                        title: "Westchester Co.",
                       ),
                       SizedBox(
                         width: 10,
                       ),
                       LocaationWidget(
                         width: 140,
-                        title: "Putnam County",
+                        title: "Putnam Co.",
                       ),
                     ],
                   ),
@@ -1163,7 +1167,7 @@ class _HomePageSmallState extends State<HomePageSmall> {
                     children: [
                       LocaationWidget(
                         width: 170,
-                        title: "Dutchess County",
+                        title: "Dutchess Co.",
                       ),
                       SizedBox(
                         width: 20,

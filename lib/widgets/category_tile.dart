@@ -48,6 +48,7 @@ class CategoryTile extends StatelessWidget {
                 categoryName,
                 color: isSelected ? mainColor : secondTextColor,
                 fontSize: 18,
+                weight: isSelected ? FontWeight.w600 : FontWeight.w300,
               ),
             ),
           ),
