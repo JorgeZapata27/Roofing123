@@ -204,45 +204,43 @@ class _HomePageSmallState extends State<HomePageSmall> {
                 top: 50,
                 left: 18,
               ),
-              child: Positioned(
-                child: Container(
-                  height: 47,
-                  width: 77,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(24),
-                        bottomLeft: Radius.circular(24),
-                        topRight: Radius.circular(10),
-                        bottomRight: Radius.circular(10)),
-                  ),
-                  child: Row(
-                    children: [
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        height: 30,
-                        width: 30,
-                        child: Image.asset("assets/images/logo_only.png"),
-                      ),
-                      SizedBox(
-                        width: 12,
-                      ),
-                      Column(
-                        children: [
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Container(
-                            height: 8,
-                            width: 15,
-                            child: Image.asset("assets/images/down_arrow.png"),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+              child: Container(
+                height: 47,
+                width: 77,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(24),
+                      bottomLeft: Radius.circular(24),
+                      topRight: Radius.circular(10),
+                      bottomRight: Radius.circular(10)),
+                ),
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Container(
+                      height: 30,
+                      width: 30,
+                      child: Image.asset("assets/images/logo_only.png"),
+                    ),
+                    SizedBox(
+                      width: 12,
+                    ),
+                    Column(
+                      children: [
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Container(
+                          height: 8,
+                          width: 15,
+                          child: Image.asset("assets/images/down_arrow.png"),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -1254,50 +1252,48 @@ class _HomePageSmallState extends State<HomePageSmall> {
                       top: 50,
                       left: 18,
                     ),
-                    child: Positioned(
-                      child: Container(
-                        height: 47,
-                        width: 77,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(24),
-                              bottomLeft: Radius.circular(24),
-                              topRight: Radius.circular(10),
-                              bottomRight: Radius.circular(10)),
-                        ),
-                        child: Row(
-                          children: [
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Container(
-                              height: 30,
-                              width: 30,
-                              child: Image.asset("assets/images/logo_only.png"),
-                            ),
-                            SizedBox(
-                              width: 12,
-                            ),
-                            Column(
-                              children: [
-                                SizedBox(
-                                  height: 20,
+                    child: Container(
+                      height: 47,
+                      width: 77,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(24),
+                            bottomLeft: Radius.circular(24),
+                            topRight: Radius.circular(10),
+                            bottomRight: Radius.circular(10)),
+                      ),
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Container(
+                            height: 30,
+                            width: 30,
+                            child: Image.asset("assets/images/logo_only.png"),
+                          ),
+                          SizedBox(
+                            width: 12,
+                          ),
+                          Column(
+                            children: [
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Container(
+                                height: 8,
+                                width: 15,
+                                child: Transform(
+                                  alignment: Alignment.center,
+                                  transform: Matrix4.rotationX(pi),
+                                  child: Image.asset(
+                                      "assets/images/down_arrow.png"),
                                 ),
-                                Container(
-                                  height: 8,
-                                  width: 15,
-                                  child: Transform(
-                                    alignment: Alignment.center,
-                                    transform: Matrix4.rotationX(pi),
-                                    child: Image.asset(
-                                        "assets/images/down_arrow.png"),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                   ),
