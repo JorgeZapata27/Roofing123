@@ -897,7 +897,7 @@ class _HomePageSmallState extends State<HomePageSmall> {
               ),
             ),
             Container(
-              width: 215,
+              width: 300,
               height: 380,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
