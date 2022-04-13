@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roofing/constants/colors.dart';
 import 'package:roofing/pages/home_large.dart';
 import 'package:roofing/pages/home_small.dart';
 import 'package:roofing/utils/responsive_layout.dart';
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Roofing 123',
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(primaryColor: mainColor),
       home: MainPage(),
     );
   }
