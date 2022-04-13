@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:roofing/constants/colors.dart';
 import 'package:roofing/model/slide.dart';
 import 'package:roofing/utils/responsive_layout.dart';
+import 'package:roofing/widgets/award_tile.dart';
 import 'package:roofing/widgets/category_tile.dart';
 import 'package:roofing/widgets/location_widget.dart';
 import 'package:roofing/widgets/main_button.dart';
@@ -22,6 +23,16 @@ class HomePageSmall extends StatefulWidget {
 
 class _HomePageSmallState extends State<HomePageSmall> {
   var indexSelected = 0;
+
+  final List awardObjects = [
+    "certified.png",
+    "angi.png",
+    "homeadvis.png",
+    "homead.png",
+    "preverf.png",
+    "accreditied.png",
+    "boundde.png",
+  ];
 
   final List features = [
     [
@@ -176,11 +187,83 @@ class _HomePageSmallState extends State<HomePageSmall> {
             ),
           ),
         ),
+        // MouseRegion(
+        //   cursor: SystemMouseCursors.click,
+        //   child: GestureDetector(
+        //     child: Padding(
+        //       padding: const EdgeInsets.only(
+        //         top: 50,
+        //         left: 18,
+        //       ),
+        //       child: Positioned(
+        //         child: Container(
+        //           height: 47,
+        //           width: 77,
+        //           decoration: BoxDecoration(
+        //             color: Colors.white,
+        //             borderRadius: BorderRadius.only(
+        //                 topLeft: Radius.circular(24),
+        //                 bottomLeft: Radius.circular(24),
+        //                 topRight: Radius.circular(10),
+        //                 bottomRight: Radius.circular(10)),
+        //           ),
+        //           child: Row(
+        //             children: [
+        //               SizedBox(
+        //                 width: 10,
+        //               ),
+        //               Container(
+        //                 height: 30,
+        //                 width: 30,
+        //                 child: Image.asset("assets/images/logo_only.png"),
+        //               ),
+        //               SizedBox(
+        //                 width: 12,
+        //               ),
+        //               Column(
+        //                 children: [
+        //                   SizedBox(
+        //                     height: 20,
+        //                   ),
+        //                   Container(
+        //                     height: 8,
+        //                     width: 15,
+        //                     child: Image.asset("assets/images/down_arrow.png"),
+        //                   ),
+        //                 ],
+        //               ),
+        //             ],
+        //           ),
+        //         ),
+        //       ),
+        //     ),
+        //   ),
+        // )
       ],
     );
 
+    Widget awardsView = Container(
+      height: 78,
+      padding: EdgeInsets.only(
+        left: 25,
+        right: 0,
+      ),
+      child: Container(
+        height: 40,
+        child: ListView.builder(
+          itemCount: awardObjects.length,
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (context, index) {
+            return AwardTile(
+              imageName: awardObjects[index],
+            );
+          },
+        ),
+      ),
+    );
+
     Widget awards = Container(
-      height: 245,
+      height: 245 + 15,
       width: MediaQuery.of(context).size.width,
       color: secondBackgroundColor,
       child: Column(
@@ -199,14 +282,10 @@ class _HomePageSmallState extends State<HomePageSmall> {
           SizedBox(
             height: 49,
           ),
-          Center(
-            child: Container(
-              height: 78,
-              child: Image.asset(
-                "assets/images/awards_view.png",
-              ),
-            ),
-          ),
+          awardsView,
+          SizedBox(
+            height: 16,
+          )
         ],
       ),
     );
