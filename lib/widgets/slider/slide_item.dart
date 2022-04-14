@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roofing/constants/colors.dart';
 import 'package:roofing/model/slide.dart';
 import 'package:roofing/widgets/text.dart';
 
@@ -19,7 +20,7 @@ class SlideItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              width: 641,
+              width: 700,
               height: 497,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

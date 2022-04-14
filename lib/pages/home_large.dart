@@ -26,14 +26,17 @@ class _HomePageLargeState extends State<HomePageLarge> {
     [
       "We Provide The Highest\nQuality, At The Lowest\nPrice Possible.",
       "123 Roofing is built to serve our customers with greater satisfaction than any other company in the roofing market.",
+      "Roofing Service >"
     ],
     [
       "We offer free inspections\nto homeowners who\nbelieve their homes may\nhave been damaged",
       "Whether your home has been battling\nwind, hail, or anything in between, we've\ngot you covered.",
+      "See More",
     ],
     [
       "Asphalt shingles have\ndurability and easy\nmaintenance.",
       "Compared with other types of roofing,\narchitectural asphalt shingles often perform\nbetter during severe weather events.",
+      "Shingle Service >",
     ],
   ];
 
@@ -684,6 +687,7 @@ class _HomePageLargeState extends State<HomePageLarge> {
             "How can we help you?",
             fontSize: 45,
             align: TextAlign.center,
+            weight: FontWeight.w500,
           ),
           SizedBox(
             height: 46,
@@ -692,128 +696,155 @@ class _HomePageLargeState extends State<HomePageLarge> {
             width: 957,
             child: Column(
               children: [
-                ExpansionTile(
-                  title: Styles.regular(
-                    "What Signs Indicate That I Need To Repair My Roof?",
-                    fontSize: 24,
-                    weight: FontWeight.w500,
-                  ),
-                  backgroundColor: Color(0xFFEDF0F2),
-                  collapsedBackgroundColor: Color(0xFFEDF0F2),
-                  textColor: textColor,
-                  iconColor: textColor,
-                  onExpansionChanged: (bool) {
-                    if (bool) {
-                      setState(() {
-                        height = height + 100;
-                      });
-                    } else {
-                      setState(() {
-                        height = height - 100;
-                      });
-                    }
-                  },
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        left: 18,
-                        right: 18,
-                      ),
-                      child: Container(
-                        height: 140,
-                        width: 957,
-                        child: Styles.regular(
-                          "There are many signs that repair is needed on your roof. Punctures, tears, and excessive wear spots on the shingles are a few of the most common signs. If you suspect a storm damaged your roof, it's best to have a professional inspect your roof since they know what they are looking for.",
-                          fontSize: 20,
-                          color: Color(0xFF595D64),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: ExpansionTile(
+                    tilePadding: EdgeInsets.only(
+                      left: 15,
+                      right: 10,
+                      top: 10,
+                      bottom: 10,
+                    ),
+                    title: Styles.regular(
+                      "What Signs Indicate That I Need To Repair My Roof?",
+                      fontSize: 24,
+                      weight: FontWeight.w500,
+                    ),
+                    backgroundColor: Color(0xFFEDF0F2),
+                    collapsedBackgroundColor: Color(0xFFEDF0F2),
+                    textColor: textColor,
+                    iconColor: textColor,
+                    onExpansionChanged: (bool) {
+                      if (bool) {
+                        setState(() {
+                          height = height + 100;
+                        });
+                      } else {
+                        setState(() {
+                          height = height - 100;
+                        });
+                      }
+                    },
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          left: 18,
+                          right: 18,
+                        ),
+                        child: Container(
+                          height: 140,
+                          width: 957,
+                          child: Styles.regular(
+                            "There are many signs that repair is needed on your roof. Punctures, tears, and excessive wear spots on the shingles are a few of the most common signs. If you suspect a storm damaged your roof, it's best to have a professional inspect your roof since they know what they are looking for.",
+                            fontSize: 20,
+                            color: Color(0xFF595D64),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
                 SizedBox(
                   height: 46,
                 ),
-                ExpansionTile(
-                  title: Styles.regular(
-                    "How Often Should I Replace My Roof?",
-                    fontSize: 24,
-                    weight: FontWeight.w500,
-                  ),
-                  backgroundColor: Color(0xFFEDF0F2),
-                  collapsedBackgroundColor: Color(0xFFEDF0F2),
-                  textColor: textColor,
-                  iconColor: textColor,
-                  onExpansionChanged: (bool) {
-                    if (bool) {
-                      setState(() {
-                        height = height + 100;
-                      });
-                    } else {
-                      setState(() {
-                        height = height - 100;
-                      });
-                    }
-                  },
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        left: 18,
-                        right: 18,
-                      ),
-                      child: Container(
-                        height: 140,
-                        width: 957,
-                        child: Styles.regular(
-                          "There are many signs that repair is needed on your roof. Punctures, tears, and excessive wear spots on the shingles are a few of the most common signs. If you suspect a storm damaged your roof, it's best to have a professional inspect your roof since they know what they are looking for.",
-                          fontSize: 20,
-                          color: Color(0xFF595D64),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: ExpansionTile(
+                    tilePadding: EdgeInsets.only(
+                      left: 15,
+                      right: 10,
+                      top: 10,
+                      bottom: 10,
+                    ),
+                    title: Styles.regular(
+                      "How Often Should I Replace My Roof?",
+                      fontSize: 24,
+                      weight: FontWeight.w500,
+                    ),
+                    backgroundColor: Color(0xFFEDF0F2),
+                    collapsedBackgroundColor: Color(0xFFEDF0F2),
+                    textColor: textColor,
+                    iconColor: textColor,
+                    onExpansionChanged: (bool) {
+                      if (bool) {
+                        setState(() {
+                          height = height + 100;
+                        });
+                      } else {
+                        setState(() {
+                          height = height - 100;
+                        });
+                      }
+                    },
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          left: 18,
+                          right: 18,
+                        ),
+                        child: Container(
+                          height: 140,
+                          width: 957,
+                          child: Styles.regular(
+                            "There are many signs that repair is needed on your roof. Punctures, tears, and excessive wear spots on the shingles are a few of the most common signs. If you suspect a storm damaged your roof, it's best to have a professional inspect your roof since they know what they are looking for.",
+                            fontSize: 20,
+                            color: Color(0xFF595D64),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
                 SizedBox(
                   height: 46,
                 ),
-                ExpansionTile(
-                  title: Styles.regular(
-                    "How Long Does It Take To Strip And Install A New Roof?",
-                    fontSize: 24,
-                    weight: FontWeight.w500,
-                  ),
-                  backgroundColor: Color(0xFFEDF0F2),
-                  collapsedBackgroundColor: Color(0xFFEDF0F2),
-                  textColor: textColor,
-                  iconColor: textColor,
-                  onExpansionChanged: (bool) {
-                    if (bool) {
-                      setState(() {
-                        height = height + 100;
-                      });
-                    } else {
-                      setState(() {
-                        height = height - 100;
-                      });
-                    }
-                  },
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        left: 18,
-                        right: 18,
-                      ),
-                      child: Container(
-                        height: 140,
-                        width: 957,
-                        child: Styles.regular(
-                          "There are many signs that repair is needed on your roof. Punctures, tears, and excessive wear spots on the shingles are a few of the most common signs. If you suspect a storm damaged your roof, it's best to have a professional inspect your roof since they know what they are looking for.",
-                          fontSize: 20,
-                          color: Color(0xFF595D64),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: ExpansionTile(
+                    tilePadding: EdgeInsets.only(
+                      left: 15,
+                      right: 10,
+                      top: 10,
+                      bottom: 10,
+                    ),
+                    title: Styles.regular(
+                      "How Long Does It Take To Strip And Install A New Roof?",
+                      fontSize: 24,
+                      weight: FontWeight.w500,
+                    ),
+                    backgroundColor: Color(0xFFEDF0F2),
+                    collapsedBackgroundColor: Color(0xFFEDF0F2),
+                    textColor: textColor,
+                    iconColor: textColor,
+                    onExpansionChanged: (bool) {
+                      if (bool) {
+                        setState(() {
+                          height = height + 100;
+                        });
+                      } else {
+                        setState(() {
+                          height = height - 100;
+                        });
+                      }
+                    },
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          left: 18,
+                          right: 18,
+                        ),
+                        child: Container(
+                          height: 140,
+                          width: 957,
+                          child: Styles.regular(
+                            "There are many signs that repair is needed on your roof. Punctures, tears, and excessive wear spots on the shingles are a few of the most common signs. If you suspect a storm damaged your roof, it's best to have a professional inspect your roof since they know what they are looking for.",
+                            fontSize: 20,
+                            color: Color(0xFF595D64),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -823,7 +854,7 @@ class _HomePageLargeState extends State<HomePageLarge> {
     );
 
     Widget rating = Container(
-      height: 630,
+      height: 680,
       width: MediaQuery.of(context).size.width,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -855,7 +886,7 @@ class _HomePageLargeState extends State<HomePageLarge> {
                 ),
               ),
               Container(
-                width: 850,
+                width: 900,
                 height: 400,
                 child: Column(
                   children: [
@@ -898,6 +929,16 @@ class _HomePageLargeState extends State<HomePageLarge> {
                       color: Color(0xFF545454),
                       align: TextAlign.center,
                     ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    Center(
+                      child: Container(
+                        height: 76,
+                        width: 76,
+                        child: Image.asset("assets/images/jeremy.png"),
+                      ),
+                    )
                   ],
                 ),
               ),
@@ -1094,6 +1135,20 @@ class _HomePageLargeState extends State<HomePageLarge> {
                             color: Color(0xFF595D64),
                             fontSize: 24,
                             weight: FontWeight.w400,
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          MouseRegion(
+                            cursor: SystemMouseCursors.click,
+                            child: GestureDetector(
+                              child: Styles.underlineed(
+                                features[indexSelected][2],
+                                weight: FontWeight.w500,
+                                color: mainColor,
+                                fontSize: 24,
+                              ),
+                            ),
                           ),
                         ],
                       ),

@@ -1,7 +1,5 @@
 import 'dart:async';
 import 'dart:math';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:roofing/constants/colors.dart';
 import 'package:roofing/model/slide.dart';
@@ -41,14 +39,17 @@ class _HomePageSmallState extends State<HomePageSmall> {
     [
       "We Provide The Highest\nQuality, At The Lowest\nPrice Possible.",
       "123 Roofing is built to serve our customers with greater satisfaction than any other company in the roofing market.",
+      "Roofing Service >"
     ],
     [
       "We offer free inspections\nto homeowners who\nbelieve their homes may\nhave been damaged",
       "Whether your home has been battling\nwind, hail, or anything in between, we've\ngot you covered.",
+      "See More",
     ],
     [
       "Asphalt shingles have\ndurability and easy\nmaintenance.",
       "Compared with other types of roofing,\narchitectural asphalt shingles often perform\nbetter during severe weather events.",
+      "Shingle Service >",
     ],
   ];
 
@@ -321,13 +322,13 @@ class _HomePageSmallState extends State<HomePageSmall> {
     );
 
     Widget styles = Container(
-      height: 820,
+      height: 913,
       width: MediaQuery.of(context).size.width,
       child: Column(
         children: [
           categories,
           Container(
-            height: 775,
+            height: 860,
             width: MediaQuery.of(context).size.width,
             child: Padding(
               padding: EdgeInsets.only(),
@@ -342,7 +343,7 @@ class _HomePageSmallState extends State<HomePageSmall> {
                       padding: const EdgeInsets.only(left: 25, right: 25),
                       child: Container(
                         width: 500,
-                        height: 300,
+                        height: 380,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -358,6 +359,20 @@ class _HomePageSmallState extends State<HomePageSmall> {
                               color: Color(0xFF595D64),
                               fontSize: 20,
                               weight: FontWeight.w400,
+                            ),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            MouseRegion(
+                              cursor: SystemMouseCursors.click,
+                              child: GestureDetector(
+                                child: Styles.underlineed(
+                                  features[indexSelected][2],
+                                  weight: FontWeight.w500,
+                                  color: mainColor,
+                                  fontSize: 24,
+                                ),
+                              ),
                             ),
                           ],
                         ),
@@ -550,7 +565,7 @@ class _HomePageSmallState extends State<HomePageSmall> {
     );
 
     Widget rating = Container(
-      height: 765,
+      height: 820,
       width: MediaQuery.of(context).size.width,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -566,7 +581,7 @@ class _HomePageSmallState extends State<HomePageSmall> {
             height: 46,
           ),
           Container(
-            height: 600,
+            height: 650,
             child: Padding(
               padding: const EdgeInsets.only(
                 left: 25,
@@ -613,6 +628,16 @@ class _HomePageSmallState extends State<HomePageSmall> {
                     color: Color(0xFF545454),
                     align: TextAlign.center,
                   ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Center(
+                    child: Container(
+                      height: 76,
+                      width: 76,
+                      child: Image.asset("assets/images/jeremy.png"),
+                    ),
+                  )
                 ],
               ),
             ),
@@ -646,6 +671,7 @@ class _HomePageSmallState extends State<HomePageSmall> {
               "How can we help you?",
               fontSize: 45,
               align: TextAlign.left,
+              weight: FontWeight.w500,
             ),
             SizedBox(
               height: 46,
@@ -654,128 +680,155 @@ class _HomePageSmallState extends State<HomePageSmall> {
               width: 1100,
               child: Column(
                 children: [
-                  ExpansionTile(
-                    title: Styles.regular(
-                      "What Signs Indicate That I Need To Repair My Roof?",
-                      fontSize: 24,
-                      weight: FontWeight.w500,
-                    ),
-                    backgroundColor: Color(0xFFEDF0F2),
-                    collapsedBackgroundColor: Color(0xFFEDF0F2),
-                    textColor: textColor,
-                    iconColor: textColor,
-                    onExpansionChanged: (bool) {
-                      if (bool) {
-                        setState(() {
-                          height = height + 200;
-                        });
-                      } else {
-                        setState(() {
-                          height = height - 200;
-                        });
-                      }
-                    },
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          left: 18,
-                          right: 18,
-                        ),
-                        child: Container(
-                          height: 380,
-                          width: 957,
-                          child: Styles.regular(
-                            "There are many signs that repair is needed on your roof. Punctures, tears, and excessive wear spots on the shingles are a few of the most common signs. If you suspect a storm damaged your roof, it's best to have a professional inspect your roof since they know what they are looking for.",
-                            fontSize: 20,
-                            color: Color(0xFF595D64),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: ExpansionTile(
+                      tilePadding: EdgeInsets.only(
+                        left: 15,
+                        right: 10,
+                        top: 10,
+                        bottom: 10,
+                      ),
+                      title: Styles.regular(
+                        "What Signs Indicate That I Need To Repair My Roof?",
+                        fontSize: 24,
+                        weight: FontWeight.w500,
+                      ),
+                      backgroundColor: Color(0xFFEDF0F2),
+                      collapsedBackgroundColor: Color(0xFFEDF0F2),
+                      textColor: textColor,
+                      iconColor: textColor,
+                      onExpansionChanged: (bool) {
+                        if (bool) {
+                          setState(() {
+                            height = height + 200;
+                          });
+                        } else {
+                          setState(() {
+                            height = height - 200;
+                          });
+                        }
+                      },
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            left: 18,
+                            right: 18,
+                          ),
+                          child: Container(
+                            height: 380,
+                            width: 957,
+                            child: Styles.regular(
+                              "There are many signs that repair is needed on your roof. Punctures, tears, and excessive wear spots on the shingles are a few of the most common signs. If you suspect a storm damaged your roof, it's best to have a professional inspect your roof since they know what they are looking for.",
+                              fontSize: 20,
+                              color: Color(0xFF595D64),
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                   SizedBox(
                     height: 46,
                   ),
-                  ExpansionTile(
-                    title: Styles.regular(
-                      "How Often Should I Replace My Roof?",
-                      fontSize: 24,
-                      weight: FontWeight.w500,
-                    ),
-                    backgroundColor: Color(0xFFEDF0F2),
-                    collapsedBackgroundColor: Color(0xFFEDF0F2),
-                    textColor: textColor,
-                    iconColor: textColor,
-                    onExpansionChanged: (bool) {
-                      if (bool) {
-                        setState(() {
-                          height = height + 200;
-                        });
-                      } else {
-                        setState(() {
-                          height = height - 200;
-                        });
-                      }
-                    },
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          left: 18,
-                          right: 18,
-                        ),
-                        child: Container(
-                          height: 380,
-                          width: 957,
-                          child: Styles.regular(
-                            "There are many signs that repair is needed on your roof. Punctures, tears, and excessive wear spots on the shingles are a few of the most common signs. If you suspect a storm damaged your roof, it's best to have a professional inspect your roof since they know what they are looking for.",
-                            fontSize: 20,
-                            color: Color(0xFF595D64),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: ExpansionTile(
+                      tilePadding: EdgeInsets.only(
+                        left: 15,
+                        right: 10,
+                        top: 10,
+                        bottom: 10,
+                      ),
+                      title: Styles.regular(
+                        "How Often Should I Replace My Roof?",
+                        fontSize: 24,
+                        weight: FontWeight.w500,
+                      ),
+                      backgroundColor: Color(0xFFEDF0F2),
+                      collapsedBackgroundColor: Color(0xFFEDF0F2),
+                      textColor: textColor,
+                      iconColor: textColor,
+                      onExpansionChanged: (bool) {
+                        if (bool) {
+                          setState(() {
+                            height = height + 200;
+                          });
+                        } else {
+                          setState(() {
+                            height = height - 200;
+                          });
+                        }
+                      },
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            left: 18,
+                            right: 18,
+                          ),
+                          child: Container(
+                            height: 380,
+                            width: 957,
+                            child: Styles.regular(
+                              "There are many signs that repair is needed on your roof. Punctures, tears, and excessive wear spots on the shingles are a few of the most common signs. If you suspect a storm damaged your roof, it's best to have a professional inspect your roof since they know what they are looking for.",
+                              fontSize: 20,
+                              color: Color(0xFF595D64),
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                   SizedBox(
                     height: 46,
                   ),
-                  ExpansionTile(
-                    title: Styles.regular(
-                      "How Long Does It Take To Strip And Install A New Roof?",
-                      fontSize: 24,
-                      weight: FontWeight.w500,
-                    ),
-                    backgroundColor: Color(0xFFEDF0F2),
-                    collapsedBackgroundColor: Color(0xFFEDF0F2),
-                    textColor: textColor,
-                    iconColor: textColor,
-                    onExpansionChanged: (bool) {
-                      if (bool) {
-                        setState(() {
-                          height = height + 230;
-                        });
-                      } else {
-                        setState(() {
-                          height = height - 230;
-                        });
-                      }
-                    },
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          left: 18,
-                          right: 18,
-                        ),
-                        child: Container(
-                          height: 410,
-                          width: 957,
-                          child: Styles.regular(
-                            "There are many signs that repair is needed on your roof. Punctures, tears, and excessive wear spots on the shingles are a few of the most common signs. If you suspect a storm damaged your roof, it's best to have a professional inspect your roof since they know what they are looking for.",
-                            fontSize: 20,
-                            color: Color(0xFF595D64),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: ExpansionTile(
+                      tilePadding: EdgeInsets.only(
+                        left: 15,
+                        right: 10,
+                        top: 10,
+                        bottom: 10,
+                      ),
+                      title: Styles.regular(
+                        "How Long Does It Take To Strip And Install A New Roof?",
+                        fontSize: 24,
+                        weight: FontWeight.w500,
+                      ),
+                      backgroundColor: Color(0xFFEDF0F2),
+                      collapsedBackgroundColor: Color(0xFFEDF0F2),
+                      textColor: textColor,
+                      iconColor: textColor,
+                      onExpansionChanged: (bool) {
+                        if (bool) {
+                          setState(() {
+                            height = height + 230;
+                          });
+                        } else {
+                          setState(() {
+                            height = height - 230;
+                          });
+                        }
+                      },
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            left: 18,
+                            right: 18,
+                          ),
+                          child: Container(
+                            height: 410,
+                            width: 957,
+                            child: Styles.regular(
+                              "There are many signs that repair is needed on your roof. Punctures, tears, and excessive wear spots on the shingles are a few of the most common signs. If you suspect a storm damaged your roof, it's best to have a professional inspect your roof since they know what they are looking for.",
+                              fontSize: 20,
+                              color: Color(0xFF595D64),
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ],
               ),
