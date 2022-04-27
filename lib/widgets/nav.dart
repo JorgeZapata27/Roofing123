@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:roofing/constants/colors.dart';
+import 'package:roofing/pages/quote_screen.dart';
 import 'package:roofing/utils/responsive_layout.dart';
 import 'package:roofing/widgets/text.dart';
 
@@ -27,6 +28,17 @@ class NavBar extends StatelessWidget {
     }).toList();
   }
 
+  void quoteScreen(
+    BuildContext context,
+  ) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const QuoteScreen(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -50,6 +62,9 @@ class NavBar extends StatelessWidget {
                     child: MouseRegion(
                       cursor: SystemMouseCursors.click,
                       child: GestureDetector(
+                        onTap: () {
+                          quoteScreen(context);
+                        },
                         child: Container(
                           margin: EdgeInsets.only(left: 20),
                           width: 119,

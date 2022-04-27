@@ -3,10 +3,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:roofing/constants/colors.dart';
 import 'package:roofing/model/slide.dart';
+import 'package:roofing/pages/quote_screen.dart';
 import 'package:roofing/widgets/category_tile.dart';
 import 'package:roofing/widgets/faq_tile.dart';
 import 'package:roofing/widgets/location_widget.dart';
-import 'package:roofing/widgets/main_button.dart';
+import 'package:roofing/widgets/utils/main_button.dart';
 import 'package:roofing/widgets/nav.dart';
 import 'package:roofing/widgets/slider/slide_dots.dart';
 import 'package:roofing/widgets/slider/slide_item.dart';
@@ -102,6 +103,17 @@ class _HomePageLargeState extends State<HomePageLarge> {
     });
   }
 
+  void quoteScreen(
+    BuildContext context,
+  ) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const QuoteScreen(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget header = Stack(
@@ -140,6 +152,9 @@ class _HomePageLargeState extends State<HomePageLarge> {
               width: 351,
               child: MainButton(
                 text: "Instant Quote",
+                function: () {
+                  quoteScreen(context);
+                },
                 isBold: false,
               ),
             ),
@@ -368,6 +383,9 @@ class _HomePageLargeState extends State<HomePageLarge> {
               height: 63,
               child: MainButton(
                 text: "Get Started",
+                function: () {
+                  quoteScreen(context);
+                },
                 isBold: false,
               ),
             ),
