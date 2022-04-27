@@ -3,11 +3,12 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:roofing/constants/colors.dart';
 import 'package:roofing/model/slide.dart';
+import 'package:roofing/pages/quote_screen.dart';
 import 'package:roofing/utils/responsive_layout.dart';
 import 'package:roofing/widgets/award_tile.dart';
 import 'package:roofing/widgets/category_tile.dart';
 import 'package:roofing/widgets/location_widget.dart';
-import 'package:roofing/widgets/main_button.dart';
+import 'package:roofing/widgets/utils/main_button.dart';
 import 'package:roofing/widgets/slider/mobile_slide_item.dart';
 import 'package:roofing/widgets/slider/slide_dots.dart';
 import 'package:roofing/widgets/slider/slide_item.dart';
@@ -118,6 +119,17 @@ class _HomePageSmallState extends State<HomePageSmall> {
     });
   }
 
+  void quoteScreen(
+    BuildContext context,
+  ) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const QuoteScreen(),
+      ),
+    );
+  }
+
   @override
   void dispose() {
     super.dispose();
@@ -190,6 +202,9 @@ class _HomePageSmallState extends State<HomePageSmall> {
               child: MainButton(
                 text: "Instant Quote",
                 isBold: false,
+                function: () {
+                  quoteScreen(context);
+                },
               ),
             ),
           ),
@@ -1066,6 +1081,9 @@ class _HomePageSmallState extends State<HomePageSmall> {
                   MouseRegion(
                     cursor: SystemMouseCursors.click,
                     child: GestureDetector(
+                      onTap: () {
+                        quoteScreen(context);
+                      },
                       child: Container(
                         child: Styles.regular(
                           "Instant Quote",
@@ -1268,6 +1286,9 @@ class _HomePageSmallState extends State<HomePageSmall> {
               width: 205,
               height: 63,
               child: MainButton(
+                function: () {
+                  quoteScreen(context);
+                },
                 text: "Get Started",
                 isBold: false,
               ),

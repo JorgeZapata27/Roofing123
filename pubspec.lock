@@ -57,6 +57,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.4"
+  enhance_stepper:
+    dependency: "direct main"
+    description:
+      name: enhance_stepper
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.1"
   fake_async:
     dependency: transitive
     description:
@@ -221,6 +228,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.2.4"
+  property_change_notifier:
+    dependency: "direct main"
+    description:
+      name: property_change_notifier
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.3.0"
+  quiver:
+    dependency: transitive
+    description:
+      name: quiver
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.1+1"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -268,6 +289,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.8"
+  tuple:
+    dependency: "direct main"
+    description:
+      name: tuple
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   typed_data:
     dependency: transitive
     description:

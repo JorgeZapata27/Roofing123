@@ -11,6 +11,9 @@ dependencies:
     
   cupertino_icons: ^1.0.2
   google_fonts:
+  enhance_stepper: ^0.1.1
+  tuple: ^2.0.0
+  property_change_notifier: ^0.3.0
 
 dev_dependencies:
   flutter_test:
