@@ -99,5 +99,31 @@
       loadMainDartJs();
     }
   </script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-analytics.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-storage.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyC0KdI7aix8wnB_L6lZqrdmR5Qyrh8jCwA",
+      authDomain: "roofing-3ec8e.firebaseapp.com",
+      projectId: "roofing-3ec8e",
+      storageBucket: "roofing-3ec8e.appspot.com",
+      messagingSenderId: "33872220447",
+      appId: "1:33872220447:web:9dd1a6aa71e092e6df602a",
+      measurementId: "G-CFJ70RVZ72",
+      databaseURL: "https://roofing-3ec8e-default-rtdb.firebaseio.com",
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
 </body>
 </html>
