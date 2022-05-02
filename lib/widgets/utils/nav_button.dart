@@ -8,14 +8,19 @@ import 'package:roofing/widgets/utils/nav_main_button.dart';
 class NavButtonsQuote extends StatelessWidget {
   final Function()? onNext;
   final Function()? onBack;
+  final bool? isEnd;
+  final bool? isStart;
   const NavButtonsQuote({
     Key? key,
     this.onNext,
     this.onBack,
+    this.isEnd,
+    this.isStart,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var isSmall = MediaQuery.of(context).size.width < 800;
     return Container(
       width: 500,
       height: 64,
@@ -24,17 +29,17 @@ class NavButtonsQuote extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           SizedBox(
-            width: 137,
+            width: isSmall ? 30 : 137,
           ),
           Button(
-            text: "Cancel",
+            text: isStart ?? false ? "Cacel" : "Back",
             function: onBack,
           ),
           SizedBox(
             width: 36,
           ),
           NavMainButton(
-            text: "Next",
+            text: isEnd ?? false ? "Estimate" : "Next",
             function: onNext,
           ),
         ],

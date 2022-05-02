@@ -17,38 +17,76 @@ class LocationQuote extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController addressController = TextEditingController();
-    var isClear = (addressController.text != "");
+    var isSmall = MediaQuery.of(context).size.width < 800;
     return Container(
       color: Colors.white,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Styles.regular(
-            "Enter Your Address",
-            color: textColor,
-            fontSize: 35,
-            weight: FontWeight.w600,
-            align: TextAlign.left,
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          MainTextField(
-            title: "Your Address",
-            hint: "300 E Clifford Dr",
-            controller: addressController,
-          ),
-          SizedBox(
-            height: 80,
-          ),
-          NavButtonsQuote(
-            onNext: onNext,
-            onBack: onBack,
-          ),
-        ],
-      ),
+      child: isSmall
+          ? Padding(
+              padding: const EdgeInsets.only(
+                left: 25,
+                right: 25,
+              ),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Styles.regular(
+                      "Enter Your Address",
+                      color: textColor,
+                      fontSize: 35,
+                      weight: FontWeight.w600,
+                      align: TextAlign.left,
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    MainTextField(
+                      title: "Your Address",
+                      hint: "300 E Clifford Dr",
+                      id: "address",
+                    ),
+                    SizedBox(
+                      height: 80,
+                    ),
+                    NavButtonsQuote(
+                      isStart: true,
+                      onNext: onNext,
+                      onBack: onBack,
+                    ),
+                  ],
+                ),
+              ),
+            )
+          : Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Styles.regular(
+                  "Enter Your Address",
+                  color: textColor,
+                  fontSize: 35,
+                  weight: FontWeight.w600,
+                  align: TextAlign.left,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                MainTextField(
+                  title: "Your Address",
+                  hint: "300 E Clifford Dr",
+                  id: "address",
+                ),
+                SizedBox(
+                  height: 80,
+                ),
+                NavButtonsQuote(
+                  isStart: true,
+                  onNext: onNext,
+                  onBack: onBack,
+                ),
+              ],
+            ),
     );
   }
 }

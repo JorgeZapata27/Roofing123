@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:roofing/constants/colors.dart';
+import 'package:roofing/widgets/quote/values.dart';
 import 'package:roofing/widgets/text.dart';
 
 class MainTextField extends StatelessWidget {
@@ -7,13 +8,17 @@ class MainTextField extends StatelessWidget {
   final String? hint;
   final String? isAddress;
   final TextEditingController? controller;
+  final TextInputType? keyType;
+  final String? id;
 
   const MainTextField({
     Key? key,
     required this.title,
     required this.hint,
-    required this.controller,
+    required this.id,
     this.isAddress,
+    this.keyType,
+    this.controller,
   }) : super(key: key);
 
   @override
@@ -35,6 +40,26 @@ class MainTextField extends StatelessWidget {
             height: 10,
           ),
           TextFormField(
+            onChanged: (text) {
+              switch (id) {
+                case "address":
+                  address = text;
+                  break;
+                case "sqfootage":
+                  sqfootage = text;
+                  break;
+                case "fullName":
+                  fullName = text;
+                  break;
+                case "phoneNumber":
+                  phoneNumber = text;
+                  break;
+                case "email":
+                  email = text;
+                  break;
+              }
+            },
+            keyboardType: keyType,
             cursorColor: mainColor,
             decoration: InputDecoration(
               contentPadding: EdgeInsets.only(
